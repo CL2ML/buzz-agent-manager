@@ -6,6 +6,10 @@ on:
     tags: ['v*.*.*']
   workflow_dispatch:
 
+concurrency:
+  group: buzz-agent-manager-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
   packages: write
